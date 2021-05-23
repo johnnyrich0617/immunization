@@ -11,7 +11,7 @@ CREATE TABLE citizens
   city VARCHAR(50) NOT NULL,
   state VARCHAR(2) NOT NULL,
   zip_code VARCHAR(5) NOT NULL,
-  ssn VARCHAR(9),
+  ssn VARCHAR(9) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -22,9 +22,9 @@ CREATE TABLE lookup_vaccine_types
     id BIGINT auto_increment,
     cn VARCHAR(50) NOT NULL,
     dn VARCHAR(50) NOT NULL,
-    mfg VARCHAR(100),
-    vac_type VARCHAR(25),
-    vac_target VARCHAR(100),
+    mfg VARCHAR(100) NOT NULL,
+    vac_type VARCHAR(25) NOT NULL,
+    vac_target VARCHAR(100) NOT NULL,
     PRIMARY KEY(id)
 );
 

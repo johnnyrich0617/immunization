@@ -1,11 +1,12 @@
 package com.jrichardson.immunization.entities;
 
-//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -16,18 +17,19 @@ public class ImmunizationLocation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
+    @NotNull(message = "loc_name cannot be null")
+    @NotEmpty(message = "loc_name is a Required Field")
     private String loc_name;
 
-
+    @NotNull(message = "loc_addr cannot be null")
+    @NotEmpty(message = "loc_addr is a Required Field")
     private String loc_addr;
 
-
+    @NotNull(message = "loc_lng cannot be null")
     private Double loc_lng;
 
-
+    @NotNull(message = "loc_lat cannot be null")
     private Double loc_lat;
-
 
     public Long getId() {
         return id;
