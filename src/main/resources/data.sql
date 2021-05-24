@@ -89,3 +89,8 @@ INSERT INTO vaccine_supply_chain(vaccine,ship_date,location,avail_date,num_units
 (1,PARSEDATETIME('04-10-2021', 'MM-dd-yyyy'),6,PARSEDATETIME('04-13-2021', 'MM-dd-yyyy'),3000,50,'AW00921',2),
 (2,PARSEDATETIME('08-25-2021', 'MM-dd-yyyy'),6,PARSEDATETIME('09-01-2021', 'MM-dd-yyyy'),4000,4000,'MD00031',1),
 (2,PARSEDATETIME('09-15-2021', 'MM-dd-yyyy'),6,PARSEDATETIME('09-21-2021', 'MM-dd-yyyy'),4000,4000,'MD00159',2);
+
+--Appointment Test Data
+INSERT INTO vaccination_apt_sched(citizen, vac_data, sched_dose_num, appointment_date) VALUES
+( 1, 1, 1, PARSEDATETIME('01-25-2021', 'MM-dd-yyyy') ),
+( 1, 2, 2, PARSEDATETIME('02-18-2021', 'MM-dd-yyyy'));

@@ -1,12 +1,11 @@
 package com.jrichardson.immunization.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -47,6 +46,15 @@ public class Citizen {
     @NotNull(message = "ssn cannot be null")
     @NotEmpty(message = "ssn cannot be empty")
     String ssn;
+
+    /*
+        @JasonManagedReference is used to prevent circular
+        dependency and Stack Overflow when json marshalling occurs.
+        This will be what actually gets marshalled by json parser.
+     */
+    @JsonManagedReference
+    @OneToMany(mappedBy = "citizen")
+    List<VaccinationAppointment> appointments;
 
     public Citizen() {
     }
@@ -159,6 +167,14 @@ public class Citizen {
         this.ssn = ssn;
     }
 
+    public List<VaccinationAppointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<VaccinationAppointment> appointments) {
+        this.appointments = appointments;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -170,22 +186,34 @@ public class Citizen {
                 && Objects.equals(getMiddle_init(), citizen.getMiddle_init())
                 && getAddress_1().equals(citizen.getAddress_1())
                 && Objects.equals(getAddress_2(), citizen.getAddress_2())
-                && getCity().equals(citizen.getCity()) && getState().equals(citizen.getState())
+                && getCity().equals(citizen.getCity())
+                && getState().equals(citizen.getState())
                 && getZip_code().equals(citizen.getZip_code())
-                && getSsn().equals(citizen.getSsn());
+                && getSsn().equals(citizen.getSsn())
+                && getAppointments().equals(citizen.getAppointments());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(),
-                getFirst_name(),
-                getLast_name(),
-                getMiddle_init(),
-                getAddress_1(),
-                getAddress_2(),
-                getCity(),
-                getState(),
-                getZip_code(),
-                getSsn());
+        return Objects.hash(getId(), getFirst_name(), getLast_name(),
+                getMiddle_init(), getAddress_1(), getAddress_2(), getCity(),
+                getState(), getZip_code(), getSsn(), getAppointments());
+    }
+
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "id=" + id +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", middle_init='" + middle_init + '\'' +
+                ", address_1='" + address_1 + '\'' +
+                ", address_2='" + address_2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip_code='" + zip_code + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", appointments=" + appointments +
+                '}';
     }
 }
