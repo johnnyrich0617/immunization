@@ -68,6 +68,6 @@ CREATE TABLE vaccination_apt_sched
     vac_data BIGINT NOT NULL,
     foreign key (vac_data) references vaccine_supply_chain(id),
     sched_dose_num INT DEFAULT 1,
-    apt_data TIMESTAMP NOT NULL,
+    appointment_date TIMESTAMP NOT NULL,
     PRIMARY KEY(id)
 );
