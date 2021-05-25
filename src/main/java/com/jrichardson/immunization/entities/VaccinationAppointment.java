@@ -103,14 +103,14 @@ public class VaccinationAppointment {
         return Objects.hash(getId(), getCitizen(), getVac_data(), getSched_dose_num(), getAppointment_date());
     }
 
-    @Override
-    public String toString() {
-        return "VaccinationAppointment{" +
-                "id=" + id +
-                ", citizen=" + citizen +
-                ", vac_data=" + vac_data +
-                ", sched_dose_num=" + sched_dose_num +
-                ", appointment_date=" + appointment_date +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "VaccinationAppointment{" +
+//                "id=" + id +
+//                ", citizen=" + citizen +
+//                ", vac_data=" + vac_data +
+//                ", sched_dose_num=" + sched_dose_num +
+//                ", appointment_date=" + appointment_date +
+//                '}';
+//    }
 }

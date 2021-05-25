@@ -200,20 +200,20 @@ public class Citizen {
                 getState(), getZip_code(), getSsn(), getAppointments());
     }
 
-    @Override
-    public String toString() {
-        return "Citizen{" +
-                "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", middle_init='" + middle_init + '\'' +
-                ", address_1='" + address_1 + '\'' +
-                ", address_2='" + address_2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip_code='" + zip_code + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", appointments=" + appointments +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Citizen{" +
+//                "id=" + id +
+//                ", first_name='" + first_name + '\'' +
+//                ", last_name='" + last_name + '\'' +
+//                ", middle_init='" + middle_init + '\'' +
+//                ", address_1='" + address_1 + '\'' +
+//                ", address_2='" + address_2 + '\'' +
+//                ", city='" + city + '\'' +
+//                ", state='" + state + '\'' +
+//                ", zip_code='" + zip_code + '\'' +
+//                ", ssn='" + ssn + '\'' +
+//                ", appointments=" + appointments +
+//                '}';
+//    }
 }

@@ -1,0 +1,25 @@
+server:
+  port: 7090
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  application:
+    name: ITA
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:itatestdb
+    username: admin
+    password: admin
+  h2:
+    console:
+      enabled: true
+      path: /db
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+app-props:
+  map_center_lng: -76.65794130637283
+  map_center_lat: 38.39741362559147
