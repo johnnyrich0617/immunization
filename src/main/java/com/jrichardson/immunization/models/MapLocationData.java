@@ -7,6 +7,9 @@ public class MapLocationData {
     private LatLngLiteral center;
     private MapMarkers mapMarkers;
 
+    public MapLocationData() {
+    }
+
     public MapLocationData(LatLngLiteral center, MapMarkers mapMarkers){
         this.center = center;
         this.mapMarkers = mapMarkers;

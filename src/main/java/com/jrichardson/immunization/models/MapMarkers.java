@@ -9,6 +9,8 @@ public class MapMarkers {
 
     private List<ImmunizationLocation> locations;
 
+    public MapMarkers() { }
+
     public MapMarkers(List<ImmunizationLocation> locations){
         this.locations = locations;
     }

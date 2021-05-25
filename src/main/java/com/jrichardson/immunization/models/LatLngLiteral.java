@@ -7,6 +7,9 @@ public class LatLngLiteral {
     private Double lat;
     private Double lng;
 
+    public LatLngLiteral() {
+    }
+
     public LatLngLiteral(Double lat, Double lng){
         this.lat = lat;
         this.lng = lng;
