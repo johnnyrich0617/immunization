@@ -69,5 +69,6 @@ CREATE TABLE vaccination_apt_sched
     foreign key (vac_data) references vaccine_supply_chain(id),
     sched_dose_num INT DEFAULT 1,
     appointment_date TIMESTAMP NOT NULL,
+    completed BOOLEAN Default FALSE,
     PRIMARY KEY(id)
 );
