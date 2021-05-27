@@ -74,13 +74,14 @@ class ApiControllerTest {
     @Test
     void getCitizensById() {
         logger.info("Testing getCitizensById()..............................");
-        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/citizens/{id}"));
+        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/citizens/1"));
         Citizen citizen = restTemplate.getForObject(baseUrl.concat("/v1/citizens/{id}"), Citizen.class, 1);
         assertAll(
                 () -> assertTrue(citizen.getId() == 1L),
                 () -> assertTrue(citizen.getFirst_name().equalsIgnoreCase("mary")),
                 () -> assertFalse(citizen.getAppointments().isEmpty()),
-                () -> assertTrue(citizen.getAppointments().size() == 2)
+                () -> assertTrue(citizen.getAppointments().size() == 2),
+                () -> assertTrue(citizen.getAppointments().get(0).isCompleted())
         );
         logger.info("Completed all Assertions for getCitizensById()..............................");
     }
@@ -106,7 +107,7 @@ class ApiControllerTest {
     @Test
     void getVaccineType() {
         logger.info("Testing getVaccineType()..............................");
-        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/vaccinetypes/{id}"));
+        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/vaccinetypes/2"));
         VaccineType vaccinetype = restTemplate.getForObject(baseUrl.concat("/v1/vaccinetypes/{id}"),
                 VaccineType.class, 2);
         assertAll(
@@ -146,7 +147,7 @@ class ApiControllerTest {
     @Test
     void getMapLocation() {
         logger.info("Testing getMapLocation()..............................");
-        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/map/{id}"));
+        logger.info("Sending request to URL..... " +baseUrl.concat("/v1/map/2"));
         ImmunizationLocation locdata = restTemplate.getForObject(baseUrl.concat("/v1/map/{id}"),
                 ImmunizationLocation.class, 2);
         assertAll(
@@ -180,7 +181,7 @@ class ApiControllerTest {
     void getSchedulesForVaccine() {
         try {
             logger.info("Testing getSchedulesForVaccine()..............................");
-            logger.info("Sending request to URL..... " +baseUrl.concat("/v1/schedules/vaccine/{vaccineid}"));
+            logger.info("Sending request to URL..... " +baseUrl.concat("/v1/schedules/vaccine/1"));
             ResponseEntity<String> citizens = restTemplate.getForEntity(baseUrl
                     .concat("/v1/schedules/vaccine/{vaccineId}"), String.class, 1);
 
@@ -200,7 +201,7 @@ class ApiControllerTest {
     void getSchedulesForLocation() {
         try {
             logger.info("Testing getSchedulesForLocation()..............................");
-            logger.info("Sending request to URL..... " +baseUrl.concat("/v1/schedules/location/{locationId}"));
+            logger.info("Sending request to URL..... " +baseUrl.concat("/v1/schedules/location/1"));
             ResponseEntity<String> citizens = restTemplate.getForEntity(baseUrl
                     .concat("/v1/schedules/location/{locationId}"), String.class, 1);
 

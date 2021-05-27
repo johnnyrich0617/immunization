@@ -3,7 +3,6 @@ package com.jrichardson.immunization.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -35,6 +34,10 @@ public class VaccinationAppointment {
 
     @NotNull
     Timestamp appointment_date;
+
+    @NotNull
+    @Column(name = "completed", columnDefinition = "boolean default false")
+    boolean completed = false;
 
     public VaccinationAppointment() {
     }
@@ -87,30 +90,27 @@ public class VaccinationAppointment {
         this.appointment_date = appointment_date;
     }
 
+    public boolean isCompleted() { return completed; }
+
+    public void setCompleted(boolean completed) { this.completed = completed; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof VaccinationAppointment)) return false;
         VaccinationAppointment that = (VaccinationAppointment) o;
         return getSched_dose_num() == that.getSched_dose_num()
-                && getId().equals(that.getId()) && getCitizen().equals(that.getCitizen())
-                && getVac_data().equals(that.getVac_data())
+                && isCompleted() == that.isCompleted()
+                && getId().equals(that.getId())
+                && getCitizen().equals(that.getCitizen())
+                && Objects.equals(getVac_data(), that.getVac_data())
                 && getAppointment_date().equals(that.getAppointment_date());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getCitizen(), getVac_data(), getSched_dose_num(), getAppointment_date());
+        return Objects.hash(getId(), getCitizen(),
+                getVac_data(), getSched_dose_num(),
+                getAppointment_date(), isCompleted());
     }
-
-//    @Override
-//    public String toString() {
-//        return "VaccinationAppointment{" +
-//                "id=" + id +
-//                ", citizen=" + citizen +
-//                ", vac_data=" + vac_data +
-//                ", sched_dose_num=" + sched_dose_num +
-//                ", appointment_date=" + appointment_date +
-//                '}';
-//    }
 }
