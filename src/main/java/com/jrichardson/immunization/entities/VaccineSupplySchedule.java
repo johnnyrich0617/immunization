@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class VaccineSupplySchedule {
     VaccineType vaccine;
 
     @NotNull(message = "Ship Date Must not be NULL")
-    Timestamp ship_date;
+    Date ship_date;
 
     @NotNull(message = "Immunization Location Must not be NULL")
     @OneToOne(cascade = CascadeType.ALL)
@@ -31,7 +32,7 @@ public class VaccineSupplySchedule {
     ImmunizationLocation location;
 
     @NotNull(message = "Available Date Must not be NULL")
-    Timestamp avail_date;
+    Date avail_date;
 
     @NotNull(message = "Number of Units Must not be NULL")
     int num_units;
@@ -49,8 +50,8 @@ public class VaccineSupplySchedule {
     public VaccineSupplySchedule() {
     }
 
-    public VaccineSupplySchedule(VaccineType vaccine, Timestamp ship_date, ImmunizationLocation location,
-                                 Timestamp avail_date, int num_units, int num_available,
+    public VaccineSupplySchedule(VaccineType vaccine, Date ship_date, ImmunizationLocation location,
+                                 Date avail_date, int num_units, int num_available,
                                  String lot_num, int des_dose) {
         this.vaccine = vaccine;
         this.ship_date = ship_date;
@@ -78,11 +79,11 @@ public class VaccineSupplySchedule {
         this.vaccine = vaccine;
     }
 
-    public Timestamp getShip_date() {
+    public Date getShip_date() {
         return ship_date;
     }
 
-    public void setShip_date(Timestamp ship_date) {
+    public void setShip_date(Date ship_date) {
         this.ship_date = ship_date;
     }
 
@@ -94,11 +95,11 @@ public class VaccineSupplySchedule {
         this.location = location;
     }
 
-    public Timestamp getAvail_date() {
+    public Date getAvail_date() {
         return avail_date;
     }
 
-    public void setAvail_date(Timestamp avail_date) {
+    public void setAvail_date(Date avail_date) {
         this.avail_date = avail_date;
     }
 
