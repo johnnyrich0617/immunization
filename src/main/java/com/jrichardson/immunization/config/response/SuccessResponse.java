@@ -21,26 +21,50 @@ public class SuccessResponse<T> {
         this.imaEntity = entity;
     }
 
+    /**
+     *
+     * @return Timestamp for this request
+     */
     public Date getTimestamp() {
         return timestamp;
     }
 
+    /**
+     *
+     * @param timestamp
+     */
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
+    /**
+     *
+     * @return Message for this response
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     *
+     * @param message
+     */
     public void setMessage(String message) {
         this.message = message;
     }
 
+    /**
+     *
+     * @return HttpStatus for this response
+     */
     public HttpStatus getStatus() {
         return status;
     }
 
+    /**
+     *
+     * @param status
+     */
     public void setStatus(HttpStatus status) {
         this.status = status;
     }
@@ -60,7 +84,7 @@ public class SuccessResponse<T> {
     }
 
     /**
-     * @return the trinityEntity
+     * @return the imaEntity
      */
     public T getImaEntity() {
         return imaEntity;

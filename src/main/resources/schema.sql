@@ -47,10 +47,10 @@ CREATE TABLE vaccine_supply_chain
     id BIGINT auto_increment,
     vaccine BIGINT NOT NULL, --id from lookup_vaccine_types
     foreign key (vaccine) references lookup_vaccine_types(id),
-    ship_date TIMESTAMP NOT NULL, --The date this delivery was/will be shipped
+    ship_date DATE NOT NULL, --The date this delivery was/will be shipped
     location BIGINT NOT NULL, --id from lookup_vaccine_locations
     foreign key (location) references lookup_immunization_locations(id),
-    avail_date TIMESTAMP NOT NULL, --The date this delivery will be available for scheduling
+    avail_date DATE NOT NULL, --The date this delivery will be available for scheduling
     num_units INT NOT NULL, --Number of units in a given delivery
     num_available INT NOT NULL, --Number of units remaining in this delivery
     lot_num VARCHAR(50), -- The lot number for this vaccine, all vaccines are tracked by lot
@@ -68,7 +68,7 @@ CREATE TABLE vaccination_apt_sched
     vac_data BIGINT NOT NULL,
     foreign key (vac_data) references vaccine_supply_chain(id),
     sched_dose_num INT DEFAULT 1,
-    appointment_date TIMESTAMP NOT NULL,
+    appointment_date DATE NOT NULL,
     completed BOOLEAN Default FALSE,
     PRIMARY KEY(id)
 );
