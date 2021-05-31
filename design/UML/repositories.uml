@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jrichardson.immunization.repositories</OriginalElement>
+  <nodes>
+    <node x="251.0" y="322.0">com.jrichardson.immunization.repositories.LocationRepository</node>
+    <node x="0.0" y="398.0">com.jrichardson.immunization.repositories.CitizenRepository</node>
+    <node x="0.0" y="0.0">com.jrichardson.immunization.repositories.VaccinationAppointmentRepository</node>
+    <node x="0.0" y="322.0">com.jrichardson.immunization.repositories.VaccineTypeRepository</node>
+    <node x="0.0" y="246.0">com.jrichardson.immunization.repositories.AppointmentRequestRepository</node>
+    <node x="0.0" y="123.0">com.jrichardson.immunization.repositories.VaccineSupplyScheduleRepository</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="196.5" y="167.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

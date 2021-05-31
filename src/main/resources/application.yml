@@ -11,6 +11,9 @@ spring:
     url: jdbc:h2:mem:itadb
     username: admin
     password: admin
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss.sss
+    time-zone: America/New_York
   h2:
     console:
       enabled: true

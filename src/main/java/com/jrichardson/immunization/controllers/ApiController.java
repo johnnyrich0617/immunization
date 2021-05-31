@@ -6,6 +6,7 @@ import com.jrichardson.immunization.config.exceptions.IMAInvalidRequestException
 import com.jrichardson.immunization.config.response.SuccessResponse;
 import com.jrichardson.immunization.entities.*;
 import com.jrichardson.immunization.models.AppointmentAddRequest;
+import com.jrichardson.immunization.models.AppointmentUpdateRequest;
 import com.jrichardson.immunization.models.MapLocationData;
 import com.jrichardson.immunization.services.CitizenService;
 import com.jrichardson.immunization.services.LookupService;
@@ -92,6 +93,18 @@ public class ApiController {
             );
             return ResponseEntity.badRequest().body(sresponse);
 
+        }
+        return ResponseEntity.badRequest().body(sresponse);
+    }
+
+    @PutMapping(path = "/v1/citizens/appointment", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<SuccessResponse> updateAppointment(@RequestBody AppointmentUpdateRequest appointmentUpdate){
+        logger.info("updateAppointment called................ ");
+        SuccessResponse sresponse = cs.updateAppointment(appointmentUpdate);
+        if(sresponse.getStatus() == HttpStatus.CREATED){
+            return ResponseEntity.ok(sresponse);
+        } else if(sresponse.getStatus() == HttpStatus.UNPROCESSABLE_ENTITY){
+            return ResponseEntity.badRequest().body(sresponse);
         }
         return ResponseEntity.badRequest().body(sresponse);
     }

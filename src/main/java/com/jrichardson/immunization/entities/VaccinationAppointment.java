@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ public class VaccinationAppointment {
     int sched_dose_num;
 
     @NotNull
-    Timestamp appointment_date;
+    Date appointment_date;
 
     @NotNull
     @Column(name = "completed", columnDefinition = "boolean default false")
@@ -43,7 +44,7 @@ public class VaccinationAppointment {
     }
 
     public VaccinationAppointment(Citizen citizen, VaccineSupplySchedule vac_data,
-                                  int sched_dose_num, Timestamp appointment_date) {
+                                  int sched_dose_num, Date appointment_date) {
         this.citizen = citizen;
         this.vac_data = vac_data;
         this.sched_dose_num = sched_dose_num;
@@ -82,11 +83,11 @@ public class VaccinationAppointment {
         this.sched_dose_num = sched_dose_num;
     }
 
-    public Timestamp getAppointment_date() {
+    public Date getAppointment_date() {
         return appointment_date;
     }
 
-    public void setAppointment_date(Timestamp appointment_date) {
+    public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
     }
 

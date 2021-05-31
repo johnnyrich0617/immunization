@@ -15,4 +15,7 @@ public interface VaccinationAppointmentRepository extends JpaRepository<Vaccinat
            "appointment.citizen.id = :citizenId AND appointment.sched_dose_num = :doseNumber")
     List<VaccinationAppointment> findAppointmentsByCitizenIdForDose(@Param("citizenId") Long citizenId,
                                                                     @Param("doseNumber") int doseNumber);
+
+    @Query("Select appointment from VaccinationAppointment appointment where appointment.citizen.id = :citizenId")
+    List<VaccinationAppointment> findAppointmentsByCitizenId(@Param("citizenId") Long citizenId );
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jrichardson.immunization.controllers.ApiController</OriginalElement>
+  <nodes>
+    <node x="1713.0" y="350.0">com.jrichardson.immunization.services.MapService</node>
+    <node x="1372.0" y="361.0">com.jrichardson.immunization.services.LookupService</node>
+    <node x="978.0" y="339.0">com.jrichardson.immunization.services.VaccineSupplyService</node>
+    <node x="598.0" y="318.5">org.springframework.web.bind.annotation.RequestMapping</node>
+    <node x="241.30882352941194" y="0.0">com.jrichardson.immunization.config.response.SuccessResponse</node>
+    <node x="812.0" y="395.5">org.springframework.web.bind.annotation.RestController</node>
+    <node x="0.0" y="262.0">com.jrichardson.immunization.services.CitizenService</node>
+    <node x="632.0" y="647.0">com.jrichardson.immunization.controllers.ApiController</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="com.jrichardson.immunization.config.response.SuccessResponse" relationship="DEPENDENCY">
+      <point x="-144.57142857142856" y="-205.5" />
+      <point x="740.4285714285716" y="616.0" />
+      <point x="587.5" y="616.0" />
+      <point x="587.5" y="237.0" />
+      <point x="426.30882352941194" y="237.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.CitizenService" target="com.jrichardson.immunization.config.response.SuccessResponse" relationship="CREATE">
+      <point x="5.6843418860808015E-14" y="-161.5" />
+      <point x="288.5" y="237.0" />
+      <point x="426.30882352941194" y="237.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="org.springframework.web.bind.annotation.RestController" relationship="ANNOTATION">
+      <point x="0.0" y="-205.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="com.jrichardson.immunization.services.VaccineSupplyService" relationship="TO_ONE">
+      <point x="72.28571428571433" y="-205.5" />
+      <point x="957.2857142857144" y="606.0" />
+      <point x="1165.0" y="606.0" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="com.jrichardson.immunization.services.LookupService" relationship="TO_ONE">
+      <point x="144.57142857142867" y="-205.5" />
+      <point x="1029.5714285714287" y="616.0" />
+      <point x="1532.5" y="616.0" />
+      <point x="0.0" y="62.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="com.jrichardson.immunization.services.MapService" relationship="TO_ONE">
+      <point x="216.8571428571429" y="-205.5" />
+      <point x="1101.857142857143" y="626.0" />
+      <point x="1879.0" y="626.0" />
+      <point x="0.0" y="73.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="org.springframework.web.bind.annotation.RequestMapping" relationship="ANNOTATION">
+      <point x="-72.28571428571422" y="-205.5" />
+      <point x="812.7142857142858" y="606.0" />
+      <point x="695.0" y="606.0" />
+      <point x="0.0" y="105.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.controllers.ApiController" target="com.jrichardson.immunization.services.CitizenService" relationship="TO_ONE">
+      <point x="-216.8571428571429" y="-205.5" />
+      <point x="668.1428571428571" y="626.0" />
+      <point x="288.5" y="626.0" />
+      <point x="0.0" y="161.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6521335807050093" showDependencies="true" x="1022.5" y="529.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

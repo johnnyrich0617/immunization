@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jrichardson.immunization.entities</OriginalElement>
+  <nodes>
+    <node x="-359.3618306267616" y="42.53053281438724">com.jrichardson.immunization.entities.VaccinationAppointment</node>
+    <node x="0.0" y="0.0">com.jrichardson.immunization.entities.VaccineType</node>
+    <node x="389.1315259696685" y="624.0">com.jrichardson.immunization.entities.AppointmentRequestEntity</node>
+    <node x="-394.8618306267616" y="633.3255938800162">com.jrichardson.immunization.entities.Citizen</node>
+    <node x="204.0" y="22.0">com.jrichardson.immunization.entities.ImmunizationLocation</node>
+    <node x="68.0" y="525.0">com.jrichardson.immunization.entities.VaccineSupplySchedule</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.jrichardson.immunization.entities.Citizen" target="com.jrichardson.immunization.entities.VaccinationAppointment" relationship="DEPENDENCY">
+      <point x="42.625" y="-402.5" />
+      <point x="-181.73683062676162" y="517.5305328143872" />
+      <point x="33.75" y="237.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccinationAppointment" target="com.jrichardson.immunization.entities.Citizen" relationship="DEPENDENCY">
+      <point x="-101.25" y="237.5" />
+      <point x="-352.2368306267616" y="517.5305328143872" />
+      <point x="-127.875" y="-402.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccinationAppointment" target="com.jrichardson.immunization.entities.VaccineSupplySchedule" relationship="DEPENDENCY">
+      <point x="67.5" y="-237.5" />
+      <point x="-156.86183062676162" y="84.23473359280638" />
+      <point x="-21.277345322775545" y="84.23473359280638" />
+      <point x="-21.277345322775545" y="593.490135552275" />
+      <point x="266.0" y="593.490135552275" />
+      <point x="66.0" y="347.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccineSupplySchedule" target="com.jrichardson.immunization.entities.VaccineType" relationship="DEPENDENCY">
+      <point x="-33.0" y="-347.5" />
+      <point x="167.0" y="500.0" />
+      <point x="138.0" y="500.0" />
+      <point x="46.0" y="237.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccinationAppointment" target="com.jrichardson.immunization.entities.Citizen" relationship="TO_ONE">
+      <point x="101.25" y="237.5" />
+      <point x="-96.48683062676162" y="517.5305328143872" />
+      <point x="127.875" y="-402.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccineSupplySchedule" target="com.jrichardson.immunization.entities.ImmunizationLocation" relationship="DEPENDENCY">
+      <point x="99.0" y="-347.5" />
+      <point x="299.0" y="500.0" />
+      <point x="354.0" y="500.0" />
+      <point x="50.0" y="215.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccinationAppointment" target="com.jrichardson.immunization.entities.VaccineSupplySchedule" relationship="TO_ONE">
+      <point x="-67.5" y="-237.5" />
+      <point x="-291.8618306267616" y="126.49483290833444" />
+      <point x="-43.11478325057044" y="126.49483290833444" />
+      <point x="-43.11478325057044" y="659.438665950879" />
+      <point x="134.0" y="659.438665950879" />
+      <point x="-66.0" y="347.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccineSupplySchedule" target="com.jrichardson.immunization.entities.ImmunizationLocation" relationship="TO_ONE">
+      <point x="33.0" y="-347.5" />
+      <point x="233.0" y="500.0" />
+      <point x="254.0" y="500.0" />
+      <point x="-50.0" y="215.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.Citizen" target="com.jrichardson.immunization.entities.VaccinationAppointment" relationship="TO_MANY">
+      <point x="-42.625" y="-402.5" />
+      <point x="-266.9868306267616" y="517.5305328143872" />
+      <point x="-33.75" y="237.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.entities.VaccineSupplySchedule" target="com.jrichardson.immunization.entities.VaccineType" relationship="TO_ONE">
+      <point x="-99.0" y="-347.5" />
+      <point x="101.0" y="500.0" />
+      <point x="46.0" y="500.0" />
+      <point x="-46.0" y="237.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6072652501713502" showDependencies="true" x="112.5" y="719.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
