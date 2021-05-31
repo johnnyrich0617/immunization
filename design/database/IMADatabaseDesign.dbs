@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="schema.sql" id="Project_1a5e" database="H2" >
+	<schema name="public" >
+		<table name="citizens" spec="" >
+			<column name="id" type="bigint" jt="-5" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="first_name" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="last_name" type="varchar" length="20" jt="12" mandatory="y" />
+			<column name="middle_init" type="varchar" length="1" jt="12" />
+			<column name="address_1" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="address_2" type="varchar" length="100" jt="12" />
+			<column name="city" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="state" type="varchar" length="2" jt="12" mandatory="y" />
+			<column name="zip_code" type="varchar" length="5" jt="12" mandatory="y" />
+			<column name="ssn" type="varchar" length="9" jt="12" mandatory="y" />
+			<index name="PrimaryKey" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="lookup_immunization_locations" spec="" >
+			<column name="id" type="bigint" jt="-5" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="loc_name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="loc_addr" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="loc_lng" type="decimal" length="11" decimal="11" jt="3" mandatory="y" />
+			<column name="loc_lat" type="decimal" length="10" decimal="10" jt="3" mandatory="y" />
+			<index name="PrimaryKey" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="lookup_vaccine_types" spec="" >
+			<column name="id" type="bigint" jt="-5" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="cn" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="dn" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="mfg" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="vac_type" type="varchar" length="25" jt="12" mandatory="y" />
+			<column name="vac_target" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="PrimaryKey" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="vaccination_apt_sched" spec="" >
+			<column name="id" type="bigint" jt="-5" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="citizen" type="bigint" jt="-5" mandatory="y" />
+			<column name="foreign" type="varchar" jt="12" />
+			<column name="vac_data" type="bigint" jt="-5" mandatory="y" />
+			<column name="foreign" type="varchar" jt="12" />
+			<column name="sched_dose_num" type="varchar" jt="12" >
+				<defo><![CDATA[1]]></defo>
+			</column>
+			<column name="appointment_date" type="date" jt="91" mandatory="y" />
+			<column name="completed" type="boolean" jt="16" >
+				<defo><![CDATA[FALSE]]></defo>
+			</column>
+			<index name="PrimaryKey" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="Fk" to_schema="public" to_table="citizens" >
+				<fk_column name="foreign" pk="id" />
+			</fk>
+			<fk name="Fk" to_schema="public" to_table="vaccine_supply_chain" >
+				<fk_column name="foreign" pk="id" />
+			</fk>
+		</table>
+		<table name="vaccine_supply_chain" spec="" >
+			<column name="id" type="bigint" jt="-5" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="vaccine" type="bigint" jt="-5" mandatory="y" />
+			<column name="foreign" type="varchar" jt="12" />
+			<column name="ship_date" type="date" jt="91" mandatory="y" />
+			<column name="location" type="bigint" jt="-5" mandatory="y" />
+			<column name="foreign" type="varchar" jt="12" />
+			<column name="avail_date" type="date" jt="91" mandatory="y" />
+			<column name="num_units" type="varchar" jt="12" mandatory="y" />
+			<column name="num_available" type="varchar" jt="12" mandatory="y" />
+			<column name="lot_num" type="varchar" length="50" jt="12" />
+			<column name="des_dose" type="varchar" jt="12" >
+				<defo><![CDATA[1]]></defo>
+			</column>
+			<index name="PrimaryKey" unique="UNIQUE_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="Fk" to_schema="public" to_table="lookup_vaccine_types" >
+				<fk_column name="foreign" pk="id" />
+			</fk>
+			<fk name="Fk" to_schema="public" to_table="lookup_immunization_locations" >
+				<fk_column name="foreign" pk="id" />
+			</fk>
+		</table>
+	</schema>
+	<schema name="schema_ima_database" />
+	<layout name="Layout" id="Layout_1902" joined_routing="y" show_column_type="y" show_schema_name="y" show_relation="columns" >
+		<entity schema="public" name="citizens" color="3986C1" x="640" y="240" />
+		<entity schema="public" name="lookup_immunization_locations" color="3986C1" x="336" y="320" />
+		<entity schema="public" name="lookup_vaccine_types" color="3986C1" x="48" y="272" />
+		<entity schema="public" name="vaccination_apt_sched" color="3986C1" x="592" y="48" />
+		<entity schema="public" name="vaccine_supply_chain" color="3986C1" x="288" y="64" />
+		<script name="SQL_Editor" id="Editor_1c6d" language="SQL" >
+			<string><![CDATA[CREATE SCHEMA schema_ima_database;
+]]></string>
+		</script>
+		<script name="SQL_Editor_001" id="Editor_16f3" language="SQL" >
+			<string><![CDATA[CREATE TABLE public.citizens ( 
+	id                   bigint AUTO_INCREMENT  ,
+	first_name           varchar(20)   NOT NULL,
+	last_name            varchar(20)   NOT NULL,
+	middle_init          varchar(1)   ,
+	address_1            varchar(100)   NOT NULL,
+	address_2            varchar(100)   ,
+	city                 varchar(50)   NOT NULL,
+	state                varchar(2)   NOT NULL,
+	zip_code             varchar(5)   NOT NULL,
+	ssn                  varchar(9)   NOT NULL,
+	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
+ );
+
+CREATE TABLE public.lookup_immunization_locations ( 
+	id                   bigint AUTO_INCREMENT  ,
+	loc_name             varchar(100)   NOT NULL,
+	loc_addr             varchar(100)   NOT NULL,
+	loc_lng              decimal(11)   NOT NULL,
+	loc_lat              decimal(10)   NOT NULL,
+	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
+ );
+
+CREATE TABLE public.lookup_vaccine_types ( 
+	id                   bigint AUTO_INCREMENT  ,
+	cn                   varchar(50)   NOT NULL,
+	dn                   varchar(50)   NOT NULL,
+	mfg                  varchar(100)   NOT NULL,
+	vac_type             varchar(25)   NOT NULL,
+	vac_target           varchar(100)   NOT NULL,
+	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
+ );
+
+CREATE TABLE public.vaccine_supply_chain ( 
+	id                   bigint AUTO_INCREMENT  ,
+	vaccine              bigint   NOT NULL,
+	"foreign"            varchar   ,
+	ship_date            date   NOT NULL,
+	location             bigint   NOT NULL,
+	"foreign"            varchar   ,
+	avail_date           date   NOT NULL,
+	num_units            varchar   NOT NULL,
+	num_available        varchar   NOT NULL,
+	lot_num              varchar(50)   ,
+	des_dose             varchar  DEFAULT 1 ,
+	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
+ );
+
+CREATE TABLE public.vaccination_apt_sched ( 
+	id                   bigint AUTO_INCREMENT  ,
+	citizen              bigint   NOT NULL,
+	"foreign"            varchar   ,
+	vac_data             bigint   NOT NULL,
+	"foreign"            varchar   ,
+	sched_dose_num       varchar  DEFAULT 1 ,
+	appointment_date     date   NOT NULL,
+	completed            boolean  DEFAULT FALSE ,
+	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
+ );
+
+ALTER TABLE public.vaccination_apt_sched ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.citizens( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE public.vaccination_apt_sched ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.vaccine_supply_chain( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE public.vaccine_supply_chain ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.lookup_vaccine_types( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE public.vaccine_supply_chain ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.lookup_immunization_locations( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+]]></string>
+		</script>
+	</layout>
+	<layout name="Parsed Script Layout" id="Layout_1752" show_relation="columns" >
+		<entity schema="public" name="citizens" color="BED3F4" x="544" y="96" />
+		<entity schema="public" name="lookup_immunization_locations" color="BED3F4" x="272" y="288" />
+		<entity schema="public" name="lookup_vaccine_types" color="BED3F4" x="64" y="368" />
+		<entity schema="public" name="vaccination_apt_sched" color="BED3F4" x="288" y="48" />
+		<entity schema="public" name="vaccine_supply_chain" color="BED3F4" x="48" y="48" />
+		<script name="schema.sql" id="Editor_1152" language="SQL" >
+			<string><![CDATA[DROP TABLE IF EXISTS citizens;
+CREATE TABLE citizens
+--Registered Citizens, --Simulated External Data Source
+(
+  id BIGINT auto_increment,
+  first_name VARCHAR(20) NOT NULL,
+  last_name VARCHAR(20) NOT NULL,
+  middle_init VARCHAR(1),
+  address_1 VARCHAR(100) NOT NULL,
+  address_2 VARCHAR(100),
+  city VARCHAR(50) NOT NULL,
+  state VARCHAR(2) NOT NULL,
+  zip_code VARCHAR(5) NOT NULL,
+  ssn VARCHAR(9) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS lookup_vaccine_types;
+CREATE TABLE lookup_vaccine_types
+--Vaccine Metadata
+(
+    id BIGINT auto_increment,
+    cn VARCHAR(50) NOT NULL,
+    dn VARCHAR(50) NOT NULL,
+    mfg VARCHAR(100) NOT NULL,
+    vac_type VARCHAR(25) NOT NULL,
+    vac_target VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS lookup_immunization_locations;
+CREATE TABLE lookup_immunization_locations
+--Vaccination location metadata
+(
+    id BIGINT auto_increment,
+    loc_name VARCHAR(100) NOT NULL,
+    loc_addr VARCHAR(100) NOT NULL,
+    loc_lng DECIMAL(11,8) NOT NULL,
+    loc_lat DECIMAL(10,8) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS vaccine_supply_chain;
+CREATE TABLE vaccine_supply_chain
+--Vaccine Delivery, Schedule External Data From Source
+(
+    id BIGINT auto_increment,
+    vaccine BIGINT NOT NULL, --id from lookup_vaccine_types
+    foreign key (vaccine) references lookup_vaccine_types(id),
+    ship_date DATE NOT NULL, --The date this delivery was/will be shipped
+    location BIGINT NOT NULL, --id from lookup_vaccine_locations
+    foreign key (location) references lookup_immunization_locations(id),
+    avail_date DATE NOT NULL, --The date this delivery will be available for scheduling
+    num_units INT NOT NULL, --Number of units in a given delivery
+    num_available INT NOT NULL, --Number of units remaining in this delivery
+    lot_num VARCHAR(50), -- The lot number for this vaccine, all vaccines are tracked by lot
+    des_dose INT DEFAULT 1, --the designation used for shot series e.g. 1st dose, 2nd dose
+    PRIMARY KEY(id)
+);
+
+DROP TABLE IF EXISTS vaccination_apt_sched;
+CREATE TABLE vaccination_apt_sched
+--Vaccination Schedule
+(
+    id BIGINT auto_increment,
+    citizen BIGINT NOT NULL,
+    foreign key (citizen) references citizens(id),
+    vac_data BIGINT NOT NULL,
+    foreign key (vac_data) references vaccine_supply_chain(id),
+    sched_dose_num INT DEFAULT 1,
+    appointment_date DATE NOT NULL,
+    completed BOOLEAN Default FALSE,
+    PRIMARY KEY(id)
+);]]></string>
+		</script>
+	</layout>
+</project>

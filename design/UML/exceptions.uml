@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jrichardson.immunization.config.exceptions</OriginalElement>
+  <nodes>
+    <node x="1163.0" y="272.5">com.jrichardson.immunization.config.exceptions.IMAInvalidRequestException</node>
+    <node x="306.49999999999994" y="436.0">com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler</node>
+    <node x="909.0" y="272.5">com.jrichardson.immunization.config.exceptions.IMAEntityRequestException</node>
+    <node x="663.0" y="285.0">com.jrichardson.immunization.config.exceptions.IMAUserNotFoundException</node>
+    <node x="442.99999999999994" y="217.0">com.jrichardson.immunization.config.exceptions.IMAError</node>
+    <node x="229.99999999999994" y="285.0">com.jrichardson.immunization.config.exceptions.IMADatabaseException</node>
+    <node x="0.0" y="272.5">com.jrichardson.immunization.config.exceptions.IMANotFoundException</node>
+    <node x="475.2083333333333" y="0.0">com.jrichardson.immunization.config.exceptions.ErrorDetails</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMAInvalidRequestException" relationship="DEPENDENCY">
+      <point x="285.42857142857156" y="-94.0" />
+      <point x="924.9285714285716" y="415.0" />
+      <point x="1283.5" y="415.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMAUserNotFoundException" relationship="DEPENDENCY">
+      <point x="95.14285714285711" y="-94.0" />
+      <point x="734.6428571428571" y="415.0" />
+      <point x="782.5" y="415.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAError" target="com.jrichardson.immunization.config.exceptions.ErrorDetails" relationship="TO_ONE">
+      <point x="-43.0" y="-83.5" />
+      <point x="486.0" y="197.0" />
+      <point x="520.9583333333333" y="197.0" />
+      <point x="-45.75" y="83.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.ErrorDetails" relationship="CREATE">
+      <point x="0.0" y="-94.0" />
+      <point x="639.5" y="311.5" />
+      <point x="639.0" y="311.5" />
+      <point x="639.0" y="187.0" />
+      <point x="612.4583333333333" y="187.0" />
+      <point x="45.75" y="83.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMANotFoundException" relationship="DEPENDENCY">
+      <point x="-285.42857142857144" y="-94.0" />
+      <point x="354.0714285714285" y="415.0" />
+      <point x="105.0" y="415.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMAError" relationship="CREATE">
+      <point x="-95.14285714285722" y="-94.0" />
+      <point x="544.3571428571428" y="415.0" />
+      <point x="529.0" y="415.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAError" target="com.jrichardson.immunization.config.exceptions.ErrorDetails" relationship="DEPENDENCY">
+      <point x="43.0" y="-83.5" />
+      <point x="572.0" y="187.0" />
+      <point x="612.4583333333333" y="187.0" />
+      <point x="45.75" y="83.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMADatabaseException" relationship="DEPENDENCY">
+      <point x="-190.28571428571433" y="-94.0" />
+      <point x="449.2142857142856" y="405.0" />
+      <point x="333.49999999999994" y="405.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.config.exceptions.IMAResponseEntityExceptionHandler" target="com.jrichardson.immunization.config.exceptions.IMAEntityRequestException" relationship="DEPENDENCY">
+      <point x="190.28571428571422" y="-94.0" />
+      <point x="829.7857142857142" y="405.0" />
+      <point x="1026.0" y="405.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.85" showDependencies="true" x="672.0" y="306.00000000000006" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

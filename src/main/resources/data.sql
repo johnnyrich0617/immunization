@@ -1,7 +1,8 @@
 
 --Citizen table data
 INSERT INTO citizens(first_name, last_name, middle_init, address_1, city, state, zip_code, ssn) VALUES
-('Mary', 'Jones', 'C', '1440 Leonardtown Rd', 'Hollywood', 'MD', '22636','222114576');
+('Mary', 'Jones', 'C', '1440 Leonardtown Rd', 'Hollywood', 'MD', '22636','222114576'),
+('Johnny', 'Rich', 'H', '1313 Mocking Bird Ln', 'California', 'MD', '20619', '111223344');
 
 --Vaccine Type lookup table data
 --Data Retrieved From https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/janssen.html
@@ -93,5 +94,6 @@ INSERT INTO vaccine_supply_chain(vaccine,ship_date,location,avail_date,num_units
 
 --Appointment Test Data
 INSERT INTO vaccination_apt_sched(citizen, vac_data, sched_dose_num, appointment_date, completed) VALUES
-( 1, 1, 1,'2021-01-25',true ),
-(1, 2, 2,'2021-02-18', true);
+( 1, 1, 1, '2021-01-25', true ),
+( 1, 2, 2, '2021-02-18', true ),
+( 2, 12, 1,'2021-06-01', false );

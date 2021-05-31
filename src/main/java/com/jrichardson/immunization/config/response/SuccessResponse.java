@@ -1,5 +1,6 @@
 package com.jrichardson.immunization.config.response;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
@@ -7,13 +8,13 @@ import org.springframework.http.HttpStatus;
 
 public class SuccessResponse<T> {
 
-    private Date timestamp;
+    private Timestamp timestamp;
     private String message;
     private Boolean success;
     private HttpStatus status;
     private T imaEntity;
 
-    public SuccessResponse(Date timestamp, String message, Boolean success, HttpStatus status, T entity) {
+    public SuccessResponse(Timestamp timestamp, String message, Boolean success, HttpStatus status, T entity) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
@@ -25,7 +26,7 @@ public class SuccessResponse<T> {
      *
      * @return Timestamp for this request
      */
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
@@ -33,7 +34,7 @@ public class SuccessResponse<T> {
      *
      * @param timestamp
      */
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.jrichardson.immunization.services</OriginalElement>
+  <nodes>
+    <node x="598.7058823529412" y="-213.5">com.jrichardson.immunization.services.MapService</node>
+    <node x="381.57352941176464" y="130.61764705882348">com.jrichardson.immunization.services.LookupService</node>
+    <node x="-201.55882352941177" y="-53.26470588235293">com.jrichardson.immunization.repositories.CitizenRepository</node>
+    <node x="-296.4117647058823" y="123.0">com.jrichardson.immunization.repositories.VaccinationAppointmentRepository</node>
+    <node x="71.5" y="361.3823529411767">com.jrichardson.immunization.services.VaccineSupplyService</node>
+    <node x="421.57352941176464" y="319.67647058823536">com.jrichardson.immunization.repositories.VaccineTypeRepository</node>
+    <node x="-310.7941176470589" y="-199.73529411764702">com.jrichardson.immunization.repositories.AppointmentRequestRepository</node>
+    <node x="-73.20588235294122" y="214.5">com.jrichardson.immunization.repositories.VaccineSupplyScheduleRepository</node>
+    <node x="730.7058823529412" y="-10.029411764705856">com.jrichardson.immunization.entities.ImmunizationLocation</node>
+    <node x="-24.970588235294144" y="-213.5">com.jrichardson.immunization.services.CitizenService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.jrichardson.immunization.services.CitizenService" target="com.jrichardson.immunization.repositories.CitizenRepository" relationship="TO_ONE">
+      <point x="-250.5" y="161.5" />
+      <point x="13.029411764705856" y="-102.85294117647058" />
+      <point x="-42.264705882352985" y="-102.85294117647058" />
+      <point x="-42.264705882352985" y="-102.85294117647055" />
+      <point x="-117.55882352941177" y="-102.85294117647055" />
+      <point x="0.0" y="-15.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.MapService" target="com.jrichardson.immunization.entities.ImmunizationLocation" relationship="DEPENDENCY">
+      <point x="-26.0" y="73.5" />
+      <point x="738.7058823529412" y="-52.0" />
+      <point x="830.7058823529412" y="-52.0" />
+      <point x="0.0" y="-161.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.VaccineSupplyService" target="com.jrichardson.immunization.repositories.VaccineSupplyScheduleRepository" relationship="TO_ONE">
+      <point x="-19.0" y="-84.5" />
+      <point x="239.5" y="459.5" />
+      <point x="134.79411764705878" y="459.5" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.CitizenService" target="com.jrichardson.immunization.repositories.AppointmentRequestRepository" relationship="TO_ONE">
+      <point x="208.5" y="161.5" />
+      <point x="472.02941176470586" y="-143.76470588235296" />
+      <point x="-178.7941176470589" y="-143.76470588235296" />
+      <point x="0.0" y="-15.5" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.CitizenService" target="com.jrichardson.immunization.repositories.VaccinationAppointmentRepository" relationship="TO_ONE">
+      <point x="196.0" y="161.5" />
+      <point x="459.52941176470586" y="30.088235294117624" />
+      <point x="-215.20588235294116" y="30.088235294117624" />
+      <point x="-215.20588235294116" y="123.0" />
+      <point x="208.0" y="-39.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.CitizenService" target="com.jrichardson.immunization.repositories.VaccineSupplyScheduleRepository" relationship="TO_ONE">
+      <point x="-40.5" y="161.5" />
+      <point x="223.02941176470586" y="214.5" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.jrichardson.immunization.services.LookupService" target="com.jrichardson.immunization.repositories.VaccineTypeRepository" relationship="TO_ONE">
+      <point x="-17.5" y="62.5" />
+      <point x="0.0" y="-15.5" />
+    </edge>
+  </edges>
+  <settings layout="Compact" zoom="0.85" showDependencies="true" x="310.0" y="158.50000000000006" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
