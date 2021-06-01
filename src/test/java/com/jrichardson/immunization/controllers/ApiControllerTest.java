@@ -64,7 +64,7 @@ class ApiControllerTest {
             ObjectMapper mapper = new ObjectMapper();
             List<Citizen> citizenList = mapper.readValue(citizens.getBody(), new TypeReference<>() {});
             assertFalse(citizenList.isEmpty());
-            assertTrue(citizenList.size() == 1);
+            assertTrue(citizenList.size() == 2);
             logger.info("Completed all Assertions for getCitizens()..............................");
         }catch (Exception e ){
             logger.info("Exception Thrown ..............................." + e.getMessage());

@@ -102,78 +102,9 @@
 		<entity schema="public" name="lookup_vaccine_types" color="3986C1" x="48" y="272" />
 		<entity schema="public" name="vaccination_apt_sched" color="3986C1" x="592" y="48" />
 		<entity schema="public" name="vaccine_supply_chain" color="3986C1" x="288" y="64" />
+		<script name="IMADatabase.sql" id="Editor_16f3" language="SQL" file="file:/C:/Users/richa/CapstoneProject/Immunization/design/database/IMADatabase.sql" />
 		<script name="SQL_Editor" id="Editor_1c6d" language="SQL" >
 			<string><![CDATA[CREATE SCHEMA schema_ima_database;
-]]></string>
-		</script>
-		<script name="SQL_Editor_001" id="Editor_16f3" language="SQL" >
-			<string><![CDATA[CREATE TABLE public.citizens ( 
-	id                   bigint AUTO_INCREMENT  ,
-	first_name           varchar(20)   NOT NULL,
-	last_name            varchar(20)   NOT NULL,
-	middle_init          varchar(1)   ,
-	address_1            varchar(100)   NOT NULL,
-	address_2            varchar(100)   ,
-	city                 varchar(50)   NOT NULL,
-	state                varchar(2)   NOT NULL,
-	zip_code             varchar(5)   NOT NULL,
-	ssn                  varchar(9)   NOT NULL,
-	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
- );
-
-CREATE TABLE public.lookup_immunization_locations ( 
-	id                   bigint AUTO_INCREMENT  ,
-	loc_name             varchar(100)   NOT NULL,
-	loc_addr             varchar(100)   NOT NULL,
-	loc_lng              decimal(11)   NOT NULL,
-	loc_lat              decimal(10)   NOT NULL,
-	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
- );
-
-CREATE TABLE public.lookup_vaccine_types ( 
-	id                   bigint AUTO_INCREMENT  ,
-	cn                   varchar(50)   NOT NULL,
-	dn                   varchar(50)   NOT NULL,
-	mfg                  varchar(100)   NOT NULL,
-	vac_type             varchar(25)   NOT NULL,
-	vac_target           varchar(100)   NOT NULL,
-	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
- );
-
-CREATE TABLE public.vaccine_supply_chain ( 
-	id                   bigint AUTO_INCREMENT  ,
-	vaccine              bigint   NOT NULL,
-	"foreign"            varchar   ,
-	ship_date            date   NOT NULL,
-	location             bigint   NOT NULL,
-	"foreign"            varchar   ,
-	avail_date           date   NOT NULL,
-	num_units            varchar   NOT NULL,
-	num_available        varchar   NOT NULL,
-	lot_num              varchar(50)   ,
-	des_dose             varchar  DEFAULT 1 ,
-	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
- );
-
-CREATE TABLE public.vaccination_apt_sched ( 
-	id                   bigint AUTO_INCREMENT  ,
-	citizen              bigint   NOT NULL,
-	"foreign"            varchar   ,
-	vac_data             bigint   NOT NULL,
-	"foreign"            varchar   ,
-	sched_dose_num       varchar  DEFAULT 1 ,
-	appointment_date     date   NOT NULL,
-	completed            boolean  DEFAULT FALSE ,
-	CONSTRAINT "PrimaryKey" UNIQUE ( id ) 
- );
-
-ALTER TABLE public.vaccination_apt_sched ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.citizens( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-ALTER TABLE public.vaccination_apt_sched ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.vaccine_supply_chain( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-ALTER TABLE public.vaccine_supply_chain ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.lookup_vaccine_types( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-ALTER TABLE public.vaccine_supply_chain ADD CONSTRAINT "Fk" FOREIGN KEY ( "foreign" ) REFERENCES public.lookup_immunization_locations( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
 ]]></string>
 		</script>
 	</layout>
