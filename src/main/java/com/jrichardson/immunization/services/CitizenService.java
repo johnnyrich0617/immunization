@@ -3,6 +3,7 @@ package com.jrichardson.immunization.services;
 import com.jrichardson.immunization.config.response.SuccessResponse;
 import com.jrichardson.immunization.entities.*;
 import com.jrichardson.immunization.models.AppointmentUpdateRequest;
+import com.jrichardson.immunization.models.ValidationResponse;
 import com.jrichardson.immunization.repositories.AppointmentRequestRepository;
 import com.jrichardson.immunization.repositories.CitizenRepository;
 import com.jrichardson.immunization.repositories.VaccinationAppointmentRepository;
@@ -36,6 +37,14 @@ public class CitizenService {
     VaccineSupplyScheduleRepository vssr;
 
 
+    public ValidationResponse validate(String serialNum) throws Exception {
+        Citizen validCitizen = cr.validateCitizen(serialNum);
+        if(validCitizen != null){
+            return new ValidationResponse(validCitizen.getId());
+        } else {
+            throw new Exception("Unable to validate requested Citizen with SerialNum = " + serialNum);
+        }
+    }
 
     public Optional<Citizen> getCitizen(Long citizenId) throws Exception {
         if(cr.existsById(citizenId))
@@ -435,4 +444,5 @@ public class CitizenService {
             return false;
         }
     }
+
 }
