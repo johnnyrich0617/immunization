@@ -8,6 +8,7 @@ import com.jrichardson.immunization.entities.*;
 import com.jrichardson.immunization.models.AppointmentAddRequest;
 import com.jrichardson.immunization.models.AppointmentUpdateRequest;
 import com.jrichardson.immunization.models.MapLocationData;
+import com.jrichardson.immunization.models.ValidationResponse;
 import com.jrichardson.immunization.services.CitizenService;
 import com.jrichardson.immunization.services.LookupService;
 import com.jrichardson.immunization.services.MapService;
@@ -43,6 +44,18 @@ public class ApiController {
     VaccineSupplyService supplyService;
 
     public ApiController(){ super(); }
+
+    @GetMapping( value = "/v1/validate/{sernum}", produces = MediaType.APPLICATION_JSON)
+    public ResponseEntity<ValidationResponse> validateCitizen(@PathVariable(value = "sernum") String serialNum) {
+        logger.info("validateCitizen called.....");
+        try{
+            return ResponseEntity.ok(cs.validate(serialNum));
+        }catch(Exception e){
+            logger.error("validateCitizen called  ...Exception has occurred");
+            logger.error("validateCitizen Exception = " + e);
+            throw new IMAEntityRequestException(e.getMessage(), e);
+        }
+    }
 
     @GetMapping(value = "/v1/citizens", produces = MediaType.APPLICATION_JSON)
     public ResponseEntity<List<Citizen>> getCitizens(){
